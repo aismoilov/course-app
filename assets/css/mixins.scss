@@ -1,0 +1,39 @@
+@import "./variables";
+
+@mixin for-mobile {
+    @media (max-width: $screenMobileEnd) {
+        @content;
+    }
+}
+
+@mixin for-desktop($only: false) {
+    @if ($only == true) {
+        @media (min-width: $screenDesktopStart) and (max-width: $screenDesktopEnd) {
+            @content;
+        }
+    } @else {
+        @media (min-width: $screenDesktopStart) {
+            @content;
+        }
+    }
+}
+
+
+@mixin for-desktop-secondary($only: false) {
+    @if ($only == true) {
+        @media (min-width: $screenDesktopSecondaryStart) and (max-width: $screenDesktopSecondaryEnd) {
+            @content;
+        }
+    } @else {
+        @media (min-width: $screenDesktopSecondaryStart) {
+            @content;
+        }
+    }
+}
+
+
+@mixin for-desktop-large {
+    @media (min-width: $screenDesktopLargeStart) {
+        @content;
+    }
+}
